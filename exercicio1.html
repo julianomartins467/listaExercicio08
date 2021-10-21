@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+        .boxBoy {
+            border: 1px solid black;
+            margin: auto;
+            position: absolute;
+            width: 150px;
+            height: 200px;
+            top:50%;
+            left:50%;
+            margin-top: -100px;
+            margin-left: -75px;
+        }
+        .boxBoy p{
+            text-align: center;
+        }
+
+           
+    </style>
+    <script>
+        function trocarGaroto(){
+
+            imagem = document.getElementById('imgBoy').src ="img/assustado.png";
+            document.getElementById("txtBoy").innerHTML ="O QUE VC QUER???"
+        }
+        function garoto2(){
+
+            imagem = document.getElementById('imgBoy').src ="img/nervoso.png";
+            document.getElementById("txtBoy").innerHTML ="Nao me aperte???"
+        }
+        function garoto3(){
+            imagem = document.getElementById('imgBoy').src ="img/alegre.png";
+        nome = prompt("Qual e o seu nome");
+        document.getElementById("txtBoy").innerHTML = `${nome} , vamos brincar?`;
+        }
+        
+
+
+    </script>
+</head>
+<body>
+    <div class="boxBoy">
+        <img src="img/pensativo.png" id="imgBoy" height="169" width="145" onmouseenter="trocarGaroto()" onmousedown="garoto2()" onmouseup="garoto3()">
+        
+       
+        <p id="txtBoy">ZZZZZZZZZZ</p>
+    </div>
+    
+</body>
+</html>

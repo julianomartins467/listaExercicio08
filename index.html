@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilos.css" type="text/css">
+    <script>
+        function validarFormulario(form) {
+			inputs = document.getElementsByTagName("input");
+			for (var i=0; i<inputs.length; i++) {
+				if (((inputs[i].type == "text") || (inputs[i].type == "password")) && (inputs[i].value == "")) {
+					alert(inputs[i].name.toUpperCase() + " não pode estar em branco. Favor preencher!");
+					
+					return false;
+				}
+            }
+            if(Logar())
+			{
+                window.location.href = "exercicio1.html";
+            }else{
+			   alert('Login ou senha inválido(s)!');
+			}
+		}
+	
+	function Logar() {
+	     var usuario = document.getElementById("txtUsuario").value;
+         var senha = document.getElementById("txtSenha").value;
+             
+		 var user = window.localStorage.getItem('usuario');
+		 var pass = window.localStorage.getItem('senha');		 
+		
+		 if (user == usuario) {
+            if(pass == senha) {
+			   return true; 			
+			}else{
+			  return false;			
+			}
+         }else{
+            return false;
+         } 	
+	 }
+
+    </script>
+    <style>
+        body {
+    
+            background-image: linear-gradient(rgb(17, 15, 13), rgb(202, 125, 33));
+            background-image: url(img/fundo.png);
+   
+    
+}
+label {
+    display: block;
+    margin-top:30px;
+    font-size: 38px;
+    font-weight: bold;
+    color: rgb(10, 1, 1);
+    text-shadow: 2px 2px 2px red;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.formulario { 
+  
+    width: 400px;
+    height: 500px;
+    padding-top: 40px;
+    opacity: 0.9;
+    background-color: rgb(219, 235, 217);
+    
+    border-radius: 50px;
+    box-shadow: 1px 1px 110px 45px rgb(136, 158, 135);
+    background-color: rgb(219, 235, 217);
+    
+}
+input {
+    width: 50%;
+    display: block;
+    margin:auto;
+}
+input[type="text"], input[type="password"] {
+    border:none;
+    color: black;
+    font-size: 15px;
+    padding:5px;
+    padding: 15px;
+    border-radius:20px;
+    box-shadow: 1px 1px 50px 5px gray;
+    transition: all 0.5s;
+    background-color: rgba(240, 217, 14, 0.6);
+    
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    box-shadow: 1px 1px 5px 5px black;
+    background-position: right center;
+}
+
+input[type="button"] {
+    margin-top: 50px;
+    background-image: linear-gradient(rgb(37, 33, 30), rgb(202, 125, 33));
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid rgb(57,12,15);
+    text-shadow: 2px 2px 2px black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px rgb(57,12,15);
+    cursor: pointer;
+    transition: all 0.3s;
+    
+}
+input[type="button"]:hover{
+    letter-spacing: 5px;
+    background-color: black;
+}
+input[type="button"]:active{
+    transform: scale(0.9);
+}
+H1{
+    background-color: aliceblue;
+    height: 50px;
+    width: 550px;
+    align-items: center;
+    font-size: 39px;
+    font-weight: bold;
+    margin-top: 0px;
+    box-shadow: 1px 1px 110px 45px rgb(136, 158, 135);
+    text-shadow: 2px 2px 2px red
+    
+}
+    </style>
+</head>
+<body>
+   <center>
+       <H1>TELA DE LOGIN</H1>
+    <div class="formulario">
+        <p class="titulo"></p>
+        <form id="formLogin" action="cadastro.html" method="POST">
+            <label for="txtNome">Usuário</label>
+            <input id="txtUsuario" name="usuario" type="text" maxlength="40" id="txtNome">
+            
+            <label for="txtSenha">Senha</label>
+            <input id="txtSenha" name="senha" type="password" maxlength="8" id="txtSenha">
+           
+            <input type="button" value="Entrar" onclick="validarFormulario('')">
+            <input type="button" value="Cadastrar" onclick="location.href='cadastro.html'">
+        </form>
+    </div>
+</center>
+</body>
+</html>
